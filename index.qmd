@@ -60,6 +60,6 @@ trim-color: "#aeb6bf"
 text-color: "#2e4053"
 format:
   nametag-typst:
-    keep-typ: true
+    keep-typ: false
     font-paths: fonts
 ---
