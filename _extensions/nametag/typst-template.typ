@@ -1,4 +1,10 @@
 // functions
+
+// remove escape character
+#let remove-escape(str) = {
+  str.replace("\\", "")
+}
+
 // check if any logo exists
 #let validate-logo(ll,lr) = {
   if ll != none or lr != none {
@@ -42,7 +48,10 @@
   paper-height: 297mm,
   paper-width: 210mm,
   nametag-height: 55mm,
-  nametag-width: 90mm
+  nametag-width: 90mm,
+  bg-image: none,
+  trim-color: "#aeb6bf",
+  text-color: "#2e4053"
   
 ) = {
 
@@ -57,11 +66,10 @@
     margin: (left: margin-x, right: margin-x, top:margin-y, bottom:margin-y)
     //margin: (left: 1.5cm, right: 1.5cm, top: 1.1cm, bottom: 1.1cm)
   )
-  set text(font-size, font: "Lato", fill: rgb("#444444"))
+  set text(font-size, font: "Lato", fill: rgb(remove-escape(text-color)))
   set par(leading: leading)
 
   grid(
-    stroke: (paint: silver, thickness: 0.5pt, dash: "dashed"),
     columns: cols,
     rows: rows,
     ..info.map(item => {
@@ -86,7 +94,14 @@
       );
       
       block(
-        //fill: pattern(image("images/bg-90x55.png")),
+        fill: if (bg-image != none and bg-image != "") {
+          pattern(
+            image(bg-image.path, height: nametag-height, width: nametag-width, fit: "cover")
+          )
+        } else {
+          none
+        },
+        stroke: (paint: rgb(remove-escape(trim-color)), thickness: 0.4pt, dash: "dashed"),
         inset: 0.3em,
         width: nametag-width,
         height: nametag-height,

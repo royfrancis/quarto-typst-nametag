@@ -54,6 +54,10 @@ paper-height: 297mm
 paper-width: 210mm
 nametag-height: 55mm
 nametag-width: 90mm
+#bg-image:
+#  path: assets/abstract.png
+trim-color: "#aeb6bf"
+text-color: "#2e4053"
 format:
   nametag-typst:
     keep-typ: true

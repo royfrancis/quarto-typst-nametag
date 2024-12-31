@@ -57,4 +57,18 @@
     nametag-width: $nametag-width$,
   $endif$
   
+  $if(bg-image)$
+    bg-image: (
+      path: "$bg-image.path$"
+    ), 
+  $endif$
+
+  $if(trim-color)$
+    trim-color: "$trim-color$",
+  $endif$
+
+  $if(text-color)$
+    text-color: "$text-color$",
+  $endif$
+
 )
