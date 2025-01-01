@@ -78,4 +78,8 @@
   $if(text-pos-y)$
     text-pos-y: $text-pos-y$,
   $endif$
+
+  $if(inset)$
+    inset: $inset$,
+  $endif$
 )

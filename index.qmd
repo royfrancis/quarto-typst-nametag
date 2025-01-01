@@ -60,6 +60,7 @@ trim-color: "#aeb6bf"
 text-color: "#2e4053"
 text-pos-x: 0mm
 text-pos-y: 0mm
+inset: 0.3em
 format:
   nametag-typst:
     keep-typ: false

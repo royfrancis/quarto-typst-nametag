@@ -53,7 +53,8 @@
   trim-color: "#aeb6bf",
   text-color: "#2e4053",
   text-pos-x: 0mm,
-  text-pos-y: 0mm
+  text-pos-y: 0mm,
+  inset: 0.3em
   
 ) = {
 
@@ -104,7 +105,7 @@
           none
         },
         stroke: (paint: rgb(remove-escape(trim-color)), thickness: 0.4pt, dash: "dashed"),
-        inset: 0.3em,
+        inset: inset,
         width: nametag-width,
         height: nametag-height,
         breakable: false,
@@ -114,12 +115,12 @@
             grid(
               columns: (1fr, 1fr),
               rows: 1,
-              align(left,
+              align(left + horizon,
                 if (logo-left != none and logo-left != "") {
                   image(logo-left.path, height: logo-left-height)
                 }
               ),
-              align(right,
+              align(right + horizon,
                 if (logo-right != none and logo-right != "") {
                   image(logo-right.path, height: logo-right-height)
                 }
