@@ -41,8 +41,8 @@
   info: (),
   logo-left: none,
   logo-right: none,
-  logo-left-height: 0.55cm,
-  logo-right-height: 0.55cm,
+  logo-left-height: 5.5mm,
+  logo-right-height: 5.5mm,
   font-size: 16pt,
   leading: 0.5em,
   paper-height: 297mm,
@@ -52,8 +52,8 @@
   bg-image: none,
   trim-color: "#aeb6bf",
   text-color: "#2e4053",
-  text-pos-x: 0%,
-  text-pos-y: 0%
+  text-pos-x: 0mm,
+  text-pos-y: 0mm
   
 ) = {
 
@@ -134,7 +134,13 @@
             )
           )
         } else {
-          align(center + horizon, content)
+          align(center + horizon, 
+            pad(
+              left: text-pos-x, 
+              top: text-pos-y,
+              content
+            )
+          )
         }
       )
     })

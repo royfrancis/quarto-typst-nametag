@@ -46,8 +46,8 @@ logo-left:
   path: "assets/logo1.png"
 logo-right:
   path: "assets/logo2.png"
-logo-left-height: 0.55cm
-logo-right-height: 0.50cm
+logo-left-height: 5.5mm
+logo-right-height: 5.5mm
 font-size: 16pt
 leading: 0.5em
 paper-height: 297mm
@@ -58,8 +58,8 @@ nametag-width: 90mm
 #  path: assets/abstract.png
 trim-color: "#aeb6bf"
 text-color: "#2e4053"
-text-pos-x: 0%
-text-pos-y: 0%
+text-pos-x: 0mm
+text-pos-y: 0mm
 format:
   nametag-typst:
     keep-typ: false

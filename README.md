@@ -24,18 +24,18 @@ Change YAML metadata in `index.qmd` as needed. All of the settings specified bel
 
 - info: Up to four lines of information. Key must be named line1, line2 etc. All lines are optional.
 - logo-left.path/logo-right.path: Path to left logo
-- logo-left-height/logo-right-height: Height of left and right logos
-- font-size: Base font size. Line 1 is 1.2x and line3/line4 are 0.9x.
-- leading: Spacing between lines
-- paper-height: Height of paper. Defaults to A4
-- paper-width: Width of paper. Defaults to A4
-- nametag-height: Height of nametag. Defaults to 55mm
-- nametag-width: Width of nametag. Defaults to 90mm
+- logo-left-height/logo-right-height: Height of left and right logos in mm
+- font-size: Base font size in pt. Line 1 is 1.2x and line3/line4 are 0.9x.
+- leading: Spacing between lines in em
+- paper-height: Height of paper in mm. Defaults to A4
+- paper-width: Width of paper in mm. Defaults to A4
+- nametag-height: Height of nametag in mm. Defaults to 55mm
+- nametag-width: Width of nametag in mm. Defaults to 90mm
 - bg-image: A background image for the nametag. Preferably use same dimensions as nametag for accurate alignment
 - trim-color: Color of dashed trim line in hexadecimal
 - text-color: Color of all text in hexadecimal
-- text-pos-x: Allows the whole text block to be moved left or right. Defaults to 0%. Use negative values to move left.
-- text-pos-y: Allows the whole text block to be moved up or down. Defaults to 0%. Use negative values to move up.
+- text-pos-x: Allows the whole text block to be moved left or right. Defaults to 0mm. Use negative values to move left.
+- text-pos-y: Allows the whole text block to be moved up or down. Defaults to 0mm. Use negative values to move up.
 
 ## Examples
 
