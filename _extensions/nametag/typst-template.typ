@@ -51,7 +51,9 @@
   nametag-width: 90mm,
   bg-image: none,
   trim-color: "#aeb6bf",
-  text-color: "#2e4053"
+  text-color: "#2e4053",
+  text-pos-x: 0%,
+  text-pos-y: 0%
   
 ) = {
 
@@ -123,7 +125,13 @@
                 }
               ),
             ),
-            align(center + horizon, content)
+            align(center + horizon, 
+              pad(
+                left: text-pos-x, 
+                top: text-pos-y,
+                content
+              )
+            )
           )
         } else {
           align(center + horizon, content)

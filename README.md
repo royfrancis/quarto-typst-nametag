@@ -34,6 +34,8 @@ Change YAML metadata in `index.qmd` as needed. All of the settings specified bel
 - bg-image: A background image for the nametag. Preferably use same dimensions as nametag for accurate alignment
 - trim-color: Color of dashed trim line in hexadecimal
 - text-color: Color of all text in hexadecimal
+- text-pos-x: Allows the whole text block to be moved left or right. Defaults to 0%. Use negative values to move left.
+- text-pos-y: Allows the whole text block to be moved up or down. Defaults to 0%. Use negative values to move up.
 
 ## Examples
 

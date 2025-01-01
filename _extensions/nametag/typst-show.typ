@@ -71,4 +71,11 @@
     text-color: "$text-color$",
   $endif$
 
+  $if(text-pos-x)$
+    text-pos-x: $text-pos-x$,
+  $endif$
+
+  $if(text-pos-y)$
+    text-pos-y: $text-pos-y$,
+  $endif$
 )

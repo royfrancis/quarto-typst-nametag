@@ -58,6 +58,8 @@ nametag-width: 90mm
 #  path: assets/abstract.png
 trim-color: "#aeb6bf"
 text-color: "#2e4053"
+text-pos-x: 0%
+text-pos-y: 0%
 format:
   nametag-typst:
     keep-typ: false
