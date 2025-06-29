@@ -4,6 +4,8 @@ info:
     line2: "Quantum Physicist"
     line3: "Quantum Research Institute"
     line4: "o.sterling@quantumri.edu"
+    line5: "United states"
+    icon: "assets/us.png"
   - line1: "Marcus Finnegan"
     line2: "Chief Technology Officer"
     line3: ""
@@ -38,10 +40,6 @@ info:
     line2: "Environmental Scientist"
     line3: "EcoLogic Research Foundation"
     line4: "l.summers@ecologic.org"
-  - line1: "Jaxon Lee"
-    line2: "Data Scientist"
-    line3: "Australian Science Network"
-    line4: "j.lee@australiascience.net.au"
 logo-left:
   path: "assets/logo1.png"
 logo-right:
@@ -54,13 +52,14 @@ paper-height: 297mm
 paper-width: 210mm
 nametag-height: 55mm
 nametag-width: 90mm
-#bg-image:
-#  path: assets/abstract.png
+# bg-image:
+#   path: assets/abstract.png
 trim-color: "#aeb6bf"
 text-color: "#2e4053"
 text-pos-x: 0mm
 text-pos-y: 0mm
 inset: 0.3em
+icon-size: 4.5mm
 format:
   nametag-typst:
     keep-typ: false

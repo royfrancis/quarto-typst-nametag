@@ -5,12 +5,10 @@
 docs
 README.md
 LICENSE
-preview.jpg
-preview-1.jpg
-preview-2.jpg
-preview-3.jpg
+preview/*
 index.pdf
 index.typ
 assets/bg.png
 assets/abstract.png
 assets/abstract-dark.png
+assets/ca.png

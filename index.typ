@@ -4,9 +4,7 @@
   #block(inset: (left: 1.5em, top: 0.2em, bottom: 0.2em))[#body]
 ]
 
-#let horizontalrule = [
-  #line(start: (25%,0%), end: (75%,0%))
-]
+#let horizontalrule = line(start: (25%,0%), end: (75%,0%))
 
 #let endnote(num, contents) = [
   #stack(dir: ltr, spacing: 3pt, super[#num], contents)
@@ -37,21 +35,17 @@
   if fields.at("below", default: none) != none {
     // TODO: this is a hack because below is a "synthesized element"
     // according to the experts in the typst discord...
-    fields.below = fields.below.amount
+    fields.below = fields.below.abs
   }
   return block.with(..fields)(new_content)
 }
 
-#let unescape-eval(str) = {
-  return eval(str.replace("\\", ""))
-}
-
 #let empty(v) = {
-  if type(v) == "string" {
+  if type(v) == str {
     // two dollar signs here because we're technically inside
     // a Pandoc template :grimace:
     v.matches(regex("^\\s*$")).at(0, default: none) != none
-  } else if type(v) == "content" {
+  } else if type(v) == content {
     if v.at("text", default: none) != none {
       return empty(v.text)
     }
@@ -114,7 +108,7 @@
 // callout rendering
 // this is a figure show rule because callouts are crossreferenceable
 #show figure: it => {
-  if type(it.kind) != "string" {
+  if type(it.kind) != str {
     return it
   }
   let kind_match = it.kind.matches(regex("^quarto-callout-(.*)")).at(0, default: none)
@@ -151,7 +145,7 @@
 }
 
 // 2023-10-09: #fa-icon("fa-info") is not working, so we'll eval "#fa-info()" instead
-#let callout(body: [], title: "Callout", background_color: rgb("#dddddd"), icon: none, icon_color: black) = {
+#let callout(body: [], title: "Callout", background_color: rgb("#dddddd"), icon: none, icon_color: black, body_background_color: white) = {
   block(
     breakable: false, 
     fill: background_color, 
@@ -170,7 +164,7 @@
         block(
           inset: 1pt, 
           width: 100%, 
-          block(fill: white, width: 100%, inset: 8pt, body))
+          block(fill: body_background_color, width: 100%, inset: 8pt, body))
       }
     )
 }
@@ -231,7 +225,8 @@
   text-color: "#2e4053",
   text-pos-x: 0mm,
   text-pos-y: 0mm,
-  inset: 0.3em
+  inset: 0.3em,
+  icon-size: 4.5mm
   
 ) = {
 
@@ -242,9 +237,7 @@
   set page(
     height: paper-height,
     width: paper-width,
-    //margin: (left: 0cm, right: 0cm, top:0cm, bottom:0cm)
     margin: (left: margin-x, right: margin-x, top:margin-y, bottom:margin-y)
-    //margin: (left: 1.5cm, right: 1.5cm, top: 1.1cm, bottom: 1.1cm)
   )
   set text(font-size, font: "Lato", fill: rgb(remove-escape(text-color)))
   set par(leading: leading)
@@ -267,15 +260,20 @@
         } else { 
           "" 
         }) + (if item.line4 != "" and item.line4 != none and item.line4 != [] { 
-          style-light(item.line4)
+          style-light(item.line4) + "\n"
         } else { 
           "" 
-        }
-      );
+        }) + (if item.line5 != "" and item.line5 != none and item.line5 != [] {
+          style-light(item.line5)
+          if(item.icon != none and item.icon != "") {
+            h(2mm)
+            box(pad(bottom: -0.2mm, image(item.icon, height: icon-size)))
+          }
+        });
       
       block(
         fill: if (bg-image != none and bg-image != "") {
-          pattern(
+          tiling(
             image(bg-image.path, height: nametag-height, width: nametag-width, fit: "cover")
           )
         } else {
@@ -333,66 +331,80 @@
       line2: [Quantum Physicist],
       line3: [Quantum Research Institute],
       line4: [o.sterling\@quantumri.edu],
+      line5: [United states],
+      icon: "assets/us.png",
     ),
         (
       line1: [Marcus Finnegan],
       line2: [Chief Technology Officer],
       line3: [],
       line4: [m.finnegan\@techinnovators.com],
+      line5: [],
+      icon: "",
     ),
         (
       line1: [Ariella Knöx],
       line2: [],
       line3: [Global Solutions Inc.],
       line4: [a.knox\@globalsolutions.com],
+      line5: [],
+      icon: "",
     ),
         (
       line1: [Theo Jansen],
       line2: [Research Analyst],
       line3: [Netherlands Technology Hub],
       line4: [t.jansen\@nth.nl],
+      line5: [],
+      icon: "",
     ),
         (
       line1: [Leila Summers],
       line2: [Environmental Scientist],
       line3: [EcoLogic Research Foundation],
       line4: [l.summers\@ecologic.org],
+      line5: [],
+      icon: "",
     ),
         (
       line1: [Jaxon Lee],
       line2: [Data Scientist],
       line3: [Australian Science Network],
       line4: [j.lee\@australiascience.net.au],
+      line5: [],
+      icon: "",
     ),
         (
       line1: [Marcus Finnegan],
       line2: [Chief Technology Officer],
       line3: [],
       line4: [m.finnegan\@techinnovators.com],
+      line5: [],
+      icon: "",
     ),
         (
       line1: [Ariella Knox],
       line2: [],
       line3: [Global Solutions Inc.],
       line4: [a.knox\@globalsolutions.com],
+      line5: [],
+      icon: "",
     ),
         (
       line1: [Theo Jansen],
       line2: [Research Analyst],
       line3: [Netherlands Technology Hub],
       line4: [t.jansen\@nth.nl],
+      line5: [],
+      icon: "",
     ),
         (
       line1: [Leila Summers],
       line2: [Environmental Scientist],
       line3: [EcoLogic Research Foundation],
       line4: [l.summers\@ecologic.org],
-    ),
-        (
-      line1: [Jaxon Lee],
-      line2: [Data Scientist],
-      line3: [Australian Science Network],
-      line4: [j.lee\@australiascience.net.au],
+      line5: [],
+      icon: "",
     ),
     ),
   
@@ -430,6 +442,8 @@
       text-pos-y: 0mm,
   
       inset: 0.3em,
+  
+      icon-size: 4.5mm,
   )
 
 
